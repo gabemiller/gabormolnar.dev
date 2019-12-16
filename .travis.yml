@@ -9,5 +9,4 @@ script:
   - npm run build
 deploy:
   provider: pages:git
-  token: $GITHUB_TOKEN
   local_dir: "./dist"
