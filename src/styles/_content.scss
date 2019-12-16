@@ -9,26 +9,32 @@
   z-index: 2;
 
   .title-container{
-    padding-top: 3rem;
+	padding-top: 3rem;
 
-    .title{
-      margin: 0 0 .5rem;
+	.title{
+	  margin: 0 0 .5rem;
 
-      // .title--who-am-i
-      &--who-am-i{
-        &.marked{
-          &:before{
-            right: .5rem;
-            width: 18rem;
-          }
-        }
-      }
+	  // .title--who-am-i
+	  &--who-am-i{
+		&.marked{
+		  &:before{
+			right: .5rem;
+			width: 7rem;
+			@include media($sm-min-width){
+			  width: 12rem;
+			}
+			@include media($md-min-width){
+			  width: 18rem;
+			}
+		  }
+		}
+	  }
 
-      // .title--what-do-i-do
-      &--what-do-i-do{
-        text-transform: uppercase;
-        letter-spacing: .25rem;
-      }
-    }
+	  // .title--what-do-i-do
+	  &--what-do-i-do{
+		text-transform: uppercase;
+		letter-spacing: .25rem;
+	  }
+	}
   }
 }

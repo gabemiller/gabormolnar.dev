@@ -16,3 +16,15 @@ $transition-curve: ease;
 @function transition($element){
   @return $element $transition-delay $transition-curve;
 }
+
+// breakpoints
+$sm-min-width: 576px;
+$md-min-width: 768px;
+$lg-min-width: 992px;
+$xl-min-width: 1200px;
+
+@mixin media($min-width){
+  @media (min-width: $min-width){
+    @content;
+  }
+}
