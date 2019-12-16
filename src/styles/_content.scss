@@ -5,6 +5,8 @@
   justify-content: center;
   text-align: center;
   padding: 0 1rem;
+  position: relative;
+  z-index: 2;
 
   .title-container{
     padding-top: 3rem;
