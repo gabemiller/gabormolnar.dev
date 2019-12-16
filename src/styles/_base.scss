@@ -1,0 +1,38 @@
+html,
+body{
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  background-color: $color-gray-900;
+  color: $color-gray-200;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+a{
+  &,&:visited{
+    color: $color-gray-200;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    transition: transition(color);
+    &:not(.marked):hover, &:not(.marked):active{
+      color: $color-red-500;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.main-content{
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+
+  .title-container{
+    padding-top: 3rem;
+
+    .title{
+      margin: 0 0 .5rem;
+
+      // .title--who-am-i
+      &--who-am-i{
+        &.marked{
+          &:before{
+            right: .5rem;
+            width: 18rem;
+          }
+        }
+      }
+
+      // .title--what-do-i-do
+      &--what-do-i-do{
+        text-transform: uppercase;
+        letter-spacing: .25rem;
+      }
+    }
+  }
+}

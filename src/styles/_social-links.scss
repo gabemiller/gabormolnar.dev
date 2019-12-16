@@ -1,0 +1,32 @@
+.social-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // .social-list__item
+  &__item{
+	padding: 0 .875rem;
+  }
+
+  // .social-list__link
+  &__link {
+	svg{
+	  height: 1.625rem;
+	  width: 1.625rem;
+	  fill: $color-gray-200;
+	  transition: transition(fill);
+	}
+
+	$brands: 'github', 'twitter', 'linkedin', 'instagram', 'unsplash';
+	@each $brand in $brands{
+	  &--#{$brand}:hover{
+		svg{
+		  fill: $color-red-500;
+		}
+	  }
+	}
+  }
+}

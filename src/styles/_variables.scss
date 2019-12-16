@@ -1,0 +1,18 @@
+// colors
+$color-red-500: hsl(5, 80%, 47%);
+$color-gray-100: hsl(0, 0%, 100%);
+$color-gray-200: hsl(0, 0%, 92%);
+$color-gray-300: hsl(0, 0%, 81%);
+$color-gray-900: hsl(280, 4%, 14%);
+
+// fonts
+$font-family-sans: 'Source Sans Pro', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
+$font-size-base: 16px;
+
+// transition
+$transition-delay: .2s;
+$transition-curve: ease;
+
+@function transition($element){
+  @return $element $transition-delay $transition-curve;
+}

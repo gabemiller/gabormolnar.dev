@@ -48,6 +48,7 @@ const baseConfig = {
 		new HTMLWebpackPlugin({
 			template: path.resolve(__dirname, 'src/index.ejs'),
 			title: 'Gábor Molnár - a dev guy from Hungary',
+			description: 'Hello, I am Gábor Molnár. Full-stack developer from Hungary.',
 		}),
 	]
 };
