@@ -5,6 +5,10 @@ import {default as P5} from 'p5';
 import Dot from './components/Dot';
 import DIRECTION_TYPE from './components/DirectionType';
 
+const MD_BREAKPOINT = 768;
+const MD_NUMBER_OF_DOTS = 25;
+const LG_NUMBER_OF_DOTS = 100;
+
 /**
  * Represent GMApp
  *
@@ -19,6 +23,7 @@ class GMApp {
 	 */
 	constructor() {
 		this._canvasParent = document.querySelector('body');
+		this._numberOfDots = this._canvasParent.clientWidth <= MD_BREAKPOINT ? MD_NUMBER_OF_DOTS : LG_NUMBER_OF_DOTS;
 		this._dots = [];
 		this._p5 = new P5(this._canvas());
 	}
@@ -31,6 +36,18 @@ class GMApp {
 		return this._dots;
 	}
 
+	set dots(value) {
+		this._dots = value;
+	}
+
+	get numberOfDots() {
+		return this._numberOfDots;
+	}
+
+	set numberOfDots(value) {
+		this._numberOfDots = value;
+	}
+
 	/**
 	 * Initialize dots
 	 *
@@ -38,11 +55,12 @@ class GMApp {
 	 * @param {number} width - width of canvas
 	 * @param {number} height - height of canvas
 	 */
-	initDots(sketch, width, height){
-		for(let i = 0; i < 100; i++){
+	_initDots(sketch, width, height){
+		this.dots = [];
+		for(let i = 0; i < this.numberOfDots; i++){
 			this.dots.push(
 				new Dot(
-					sketch.random(50, width - 50),
+					sketch.random(10, width - 10),
 					sketch.random(10, height - 10),
 					5,
 					sketch.random(Object.values(DIRECTION_TYPE)),
@@ -63,7 +81,7 @@ class GMApp {
 		return (sketch) => {
 			let canvas = null;
 			const {clientWidth: canvasWidth, clientHeight: canvasHeight} = that.canvasParent;
-			this.initDots(sketch, canvasWidth, canvasHeight);
+			that._initDots(sketch, canvasWidth, canvasHeight);
 
 			sketch.setup = () => {
 				canvas = sketch.createCanvas(canvasWidth, canvasHeight);
@@ -100,7 +118,11 @@ class GMApp {
 			};
 
 			sketch.windowResized = () => {
-				sketch.resizeCanvas(canvas.parent().clientWidth, canvas.parent().clientHeight);
+				const {clientWidth: canvasWidth, clientHeight: canvasHeight} = canvas.parent();
+
+				sketch.resizeCanvas(canvasWidth, canvasHeight);
+				that.numberOfDots = canvasWidth <= MD_BREAKPOINT ? MD_NUMBER_OF_DOTS : LG_NUMBER_OF_DOTS;
+				that._initDots(sketch, canvasWidth, canvasHeight);
 			};
 		};
 	}
@@ -149,7 +171,7 @@ class GMApp {
 	 *
 	 * @param {Dot} dot - a Dot object
 	 * @param {number} width - width of canvas
-	 * @param {height} height - height of canvas
+	 * @param {number} height - height of canvas
 	 * @private
 	 */
 	_changeDirection(dot, width, height){

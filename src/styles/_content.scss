@@ -18,8 +18,8 @@
 	  &--who-am-i{
 		&.marked{
 		  &:before{
-			right: .5rem;
-			width: 7rem;
+			right: 0;
+			width: 7.5rem;
 			@include media($sm-min-width){
 			  width: 12rem;
 			}
