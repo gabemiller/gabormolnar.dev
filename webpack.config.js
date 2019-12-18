@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const buildConfig = require('./webpack.config.build');
@@ -50,6 +51,9 @@ const baseConfig = {
 			title: 'Gábor Molnár - a dev guy from Hungary',
 			description: 'Hello, I am Gábor Molnár. Full-stack developer from Hungary.',
 		}),
+		new CopyWebpackPlugin([
+			{ from: path.resolve(__dirname, 'src/favicons'), to: path.resolve(__dirname, 'dist/favicons') },
+		]),
 	]
 };
 
