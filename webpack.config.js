@@ -53,6 +53,7 @@ const baseConfig = {
 		}),
 		new CopyWebpackPlugin([
 			{ from: path.resolve(__dirname, 'src/favicons'), to: path.resolve(__dirname, 'dist/favicons') },
+			{ from: path.resolve(__dirname, 'src/robots.txt'), to: path.resolve(__dirname, 'dist/robots.txt') },
 		]),
 	]
 };
