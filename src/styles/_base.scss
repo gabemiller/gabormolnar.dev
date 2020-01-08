@@ -13,7 +13,7 @@ body{
   position: relative;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1, h2, h3, h4, h5, h6{
   font-weight: normal;
 }
 
@@ -27,7 +27,7 @@ h1{
   }
 }
 
-h2 {
+h2{
   font-size: 1rem;
   @include media($sm-min-width){
 	font-size: 1.5rem;
@@ -38,14 +38,23 @@ h2 {
 }
 
 a{
-  &,&:visited{
-    color: $color-gray-200;
-    text-decoration: none;
-    position: relative;
-    z-index: 2;
-    transition: transition(color);
-    &:not(.marked):hover, &:not(.marked):active{
-      color: $color-red-500;
-    }
+  &, &:visited{
+	color: $color-gray-200;
+	text-decoration: none;
+	position: relative;
+	z-index: 2;
+	transition: transition(color);
+
+	&:not(.marked):hover, &:not(.marked):active{
+	  color: $color-red-500;
+	}
   }
+}
+
+.hide-svg{
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  opacity: 0
 }
